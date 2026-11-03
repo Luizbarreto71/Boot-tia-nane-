@@ -1,0 +1,45 @@
+{
+  "demonstrativo": true,
+  "profissional": {
+    "nome": "Janiere Gomes",
+    "apresentacao": "Nutricionista e Personal Trainer"
+  },
+  "modulosDesabilitados": [],
+  "servicos": {
+    "nutricao": {
+      "titulo": "Nutricionista on-line",
+      "formato": "Atendimento on-line com a Janiere; formato, duração e frequência são combinados diretamente com ela.",
+      "preco": null,
+      "revisao": null
+    },
+    "personal": {
+      "titulo": "Personal Trainer on-line",
+      "formato": "Acompanhamento de treino on-line com a Janiere; formato e frequência são combinados diretamente com ela.",
+      "preco": null,
+      "revisao": null
+    }
+  },
+  "atendimentoHumano": {
+    "responsavelPadrao": "janiere",
+    "expediente": { "diasSemana": [1, 2, 3, 4, 5], "inicio": "08:00", "fim": "18:00" },
+    "prazoRetorno": null
+  },
+  "preferenciasContato": [
+    { "valor": "mensagem", "rotulo": "Mensagem por aqui", "aliases": ["mensagem", "whatsapp", "whats", "zap", "texto", "por aqui", "aqui"] },
+    { "valor": "ligacao", "rotulo": "Ligação", "aliases": ["ligacao", "ligar", "telefone", "me liga", "chamada de voz"] },
+    { "valor": "video", "rotulo": "Videochamada", "aliases": ["video", "videochamada", "chamada de video", "video chamada"] }
+  ],
+  "periodos": [
+    { "valor": "manha", "rotulo": "Manhã", "aliases": ["manha", "de manha", "pela manha", "cedo"] },
+    { "valor": "tarde", "rotulo": "Tarde", "aliases": ["tarde", "a tarde", "de tarde", "pela tarde"] },
+    { "valor": "noite", "rotulo": "Noite", "aliases": ["noite", "a noite", "de noite"] },
+    { "valor": "qualquer", "rotulo": "Qualquer horário", "aliases": ["qualquer", "qualquer horario", "qualquer hora", "tanto faz"] }
+  ],
+  "conhecimento": [
+    {
+      "pergunta": "O atendimento é presencial?",
+      "resposta": "Os serviços apresentados por aqui são on-line.",
+      "revisao": null
+    }
+  ]
+}

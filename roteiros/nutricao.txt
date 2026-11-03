@@ -1,0 +1,43 @@
+# Roteiro de demonstração — perfil WhatsApp, contato simulado.
+# Linhas com # são comentários; linhas com / são comandos da simulação.
+# Rode com contato novo para ver as boas-vindas:
+#   npm run sim -- --contato sim-demo-$(date +%s) --roteiro roteiros/nutricao.txt
+
+# 1) Primeiro contato e menu do canal (só as funções elegíveis no WhatsApp)
+oi
+
+# 2) Texto livre com assunto bloqueado neste canal
+quero ser distribuidora herbalife
+
+# 3) Fluxo de nutrição; "1" é interpretado pelo menu atual
+1
+sim
+meu nome é ana lúcia
+2
+a partir das 18h
+1
+
+# 4) Depois de concluir, "1" sem pergunta pendente não vira a opção 1 do menu
+1
+
+# 5) Evento repetido pelo provedor não gera nova resposta
+/repetir
+
+# 6) Pedido de atendimento humano pausa a automação
+HUMANO
+quando ela vai me responder?
+/equipe
+
+# 7) A equipe assume, responde e devolve ao bot
+/assumir
+/responder Oi, Ana! Aqui é a Janiere. Vi sua solicitação de consulta on-line.
+/responder Também posso te explicar sobre renda extra.
+/devolver Contato orientado; aguardando confirmação de horário.
+MENU
+
+# 8) Fora da janela de 24h nem a equipe consegue mandar mensagem livre
+HUMANO
+/assumir
+/tempo +25h
+/responder Oi, tudo bem?
+/estado

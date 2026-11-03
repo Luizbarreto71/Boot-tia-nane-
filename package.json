@@ -1,0 +1,36 @@
+{
+  "name": "bot-tia-nane",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Assistente virtual da Janiere Gomes (Nutricionista e Personal Trainer) — núcleo de conversa, simulação e atendimento humano",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "db:start": "node scripts/db-local.mjs start",
+    "db:stop": "node scripts/db-local.mjs stop",
+    "db:status": "node scripts/db-local.mjs status",
+    "db:reset": "node scripts/db-local.mjs reset",
+    "db:migrate": "tsx src/db/migrar-cli.ts",
+    "sim": "tsx src/sim/cli.ts",
+    "start": "tsx src/principal.ts",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "test:unit": "vitest run --project unidade",
+    "test:integration": "vitest run --project integracao"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "1.3.0",
+    "fastify": "5.12.7",
+    "pg": "8.23.1",
+    "tsx": "4.23.15",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "@types/pg": "8.23.1",
+    "typescript": "7.0.2",
+    "vitest": "5.0.5"
+  }
+}

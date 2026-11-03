@@ -1,0 +1,45 @@
+# Blueprint do Render: serviço web (webhook + processamento contínuo) e banco PostgreSQL.
+# Valores com sync: false são pedidos pelo painel na criação; nunca coloque segredos neste arquivo.
+# O arquivo de configuração do negócio é um Secret File criado no painel (ver README).
+services:
+  - type: web
+    name: bot-tia-nane
+    runtime: node
+    # O plano grátis desliga após 15 min sem tráfego; o bot precisa do laço de processamento sempre ativo.
+    plan: 0.5c-512mb
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /saude
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: SIMULATION_MODE
+        value: "false"
+      - key: BUSINESS_CONFIG_PATH
+        value: /etc/secrets/negocio.json
+      - key: GRAPH_API_VERSION
+        value: v26.0
+      - key: DATABASE_URL
+        fromDatabase:
+          name: bot-tia-nane-db
+          property: connectionString
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: META_APP_SECRET
+        sync: false
+      - key: WHATSAPP_VERIFY_TOKEN
+        sync: false
+      - key: WHATSAPP_ACCESS_TOKEN
+        sync: false
+      - key: WHATSAPP_PHONE_NUMBER_ID
+        sync: false
+      - key: WHATSAPP_BUSINESS_ACCOUNT_ID
+        sync: false
+      - key: PUBLIC_BASE_URL
+        sync: false
+
+databases:
+  - name: bot-tia-nane-db
+    # O plano grátis expira em 30 dias.
+    plan: 0.1c-256mb
+    postgresMajorVersion: "17"
